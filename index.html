@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Cardápio digital da Pizzaria La Famiglia. Pizzas, esfihas, bebidas e muito mais."
+  >
+
+  <title>La Famiglia | Cardápio Digital</title>
+
+  <link
+    rel="icon"
+    href="images/a59e373e0_logo.png"
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --red: #e21d2f;
+      --red-dark: #a90d1b;
+      --yellow: #ffc928;
+      --dark: #111111;
+      --dark-2: #181818;
+      --dark-3: #222222;
+      --white: #ffffff;
+      --gray: #a8a8a8;
+      --border: rgba(255,255,255,.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        #101010;
+
+      color:
+        #fff;
+
+      min-height:
+        100vh;
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      width: 100%;
+
+      background:
+        rgba(15,15,15,.94);
+
+      backdrop-filter:
+        blur(15px);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .header-container {
+      max-width:
+        1200px;
+
+      margin:
+        auto;
+
+      padding:
+        13px 20px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+    }
+
+    .brand {
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        12px;
+    }
+
+    .brand img {
+      width:
+        52px;
+
+      height:
+        52px;
+
+      object-fit:
+        contain;
+
+      border-radius:
+        50%;
+    }
+
+    .brand-text h1 {
+      font-size:
+        20px;
+
+      font-weight:
+        900;
+    }
+
+    .brand-text p {
+      margin-top:
+        3px;
+
+      color:
+        #aaa;
+
+      font-size:
+        12px;
+    }
+
+    .status {
+      color:
+        #52d273;
+
+      font-weight:
+        800;
+    }
+
+    .cart-button {
+      border:
+        none;
+
+      background:
+        var(--red);
+
+      color:
+        white;
+
+      padding:
+        13px 17px;
+
+      border-radius:
+        14px;
+
+      font-weight:
+        900;
+
+      font-size:
+        14px;
+
+      display:
+        flex;
+
+      gap:
+        8px;
+
+      align-items:
+        center;
+
+      transition:
+        .2s;
+    }
+
+    .cart-button:hover {
+      background:
+        #ff2b3f;
+
+      transform:
+        translateY(-2px);
+    }
+
+    .cart-count {
+      background:
+        #fff;
+
+      color:
+        #111;
+
+      width:
+        22px;
+
+      height:
+        22px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border-radius:
+        50%;
+
+      font-size:
+        12px;
+
+      font-weight:
+        900;
+    }
+
+    /* HERO */
+
+    .hero {
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      min-height:
+        430px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      background:
+        radial-gradient(
+          circle at 80% 50%,
+          rgba(226,29,47,.35),
+          transparent 45%
+        ),
+        linear-gradient(
+          135deg,
+          #0c0c0c,
+          #161616
+        );
+    }
+
+    .hero::before {
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        500px;
+
+      height:
+        500px;
+
+      border:
+        100px solid rgba(255,255,255,.02);
+
+      border-radius:
+        50%;
+
+      right:
+        -150px;
+
+      top:
+        -170px;
+    }
+
+    .hero-container {
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      max-width:
+        1200px;
+
+      width:
+        100%;
+
+      margin:
+        auto;
+
+      padding:
+        75px 20px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1.2fr .8fr;
+
+      align-items:
+        center;
+
+      gap:
+        45px;
+    }
+
+    .hero-badge {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap:
+        8px;
+
+      color:
+        var(--yellow);
+
+      border:
+        1px solid
+        rgba(255,201,40,.25);
+
+      background:
+        rgba(255,201,40,.08);
+
+      padding:
+        8px 13px;
+
+      border-radius:
+        999px;
+
+      font-size:
+        12px;
+
+      font-weight:
+        900;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        1px;
+
+      margin-bottom:
+        22px;
+    }
+
+    .hero h2 {
+      font-size:
+        clamp(
+          42px,
+          6vw,
+          80px
+        );
+
+      line-height:
+        .95;
+
+      max-width:
+        730px;
+
+      letter-spacing:
+        -4px;
+
+      font-weight:
+        1000;
+    }
+
+    .hero h2 span {
+      color:
+        var(--red);
+    }
+
+    .hero-description {
+      margin-top:
+        24px;
+
+      color:
+        #bbb;
+
+      max-width:
+        580px;
+
+      line-height:
+        1.7;
+
+      font-size:
+        16px;
+    }
+
+    .hero-actions {
+      margin-top:
+        30px;
+
+      display:
+        flex;
+
+      gap:
+        12px;
+
+      flex-wrap:
+        wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      padding:
+        15px 22px;
+
+      border-radius:
+        13px;
+
+      border:
+        none;
+
+      font-weight:
+        900;
+
+      font-size:
+        14px;
+
+      text-decoration:
+        none;
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      transition:
+        .2s;
+    }
+
+    .btn-primary {
+      background:
+        var(--red);
+
+      color:
+        white;
+    }
+
+    .btn-primary:hover {
+      background:
+        #ff2b3f;
+
+      transform:
+        translateY(-2px);
+    }
+
+    .btn-secondary {
+      background:
+        #252525;
+
+      border:
+        1px solid var(--border);
+
+      color:
+        white;
+    }
+
+    .btn-secondary:hover {
+      background:
+        #303030;
+    }
+
+    .hero-card {
+      background:
+        linear-gradient(
+          145deg,
+          #222,
+          #151515
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        30px;
+
+      padding:
+        35px;
+
+      box-shadow:
+        0 35px 90px
+        rgba(0,0,0,.45);
+
+      position:
+        relative;
+
+      text-align:
+        center;
+    }
+
+    .hero-card img {
+      width:
+        min(280px, 80%);
+
+      aspect-ratio:
+        1;
+
+      object-fit:
+        contain;
+
+      filter:
+        drop-shadow(
+          0 25px 30px
+          rgba(0,0,0,.4)
+        );
+    }
+
+    .hero-card h3 {
+      margin-top:
+        15px;
+
+      font-size:
+        25px;
+    }
+
+    .hero-card p {
+      color:
+        #999;
+
+      margin-top:
+        8px;
+    }
+
+    /* CONTENT */
+
+    .content {
+      max-width:
+        1200px;
+
+      margin:
+        auto;
+
+      padding:
+        60px 20px 120px;
+    }
+
+    .section-header {
+      margin-bottom:
+        28px;
+    }
+
+    .section-header span {
+      color:
+        var(--red);
+
+      font-size:
+        12px;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        2px;
+
+      text-transform:
+        uppercase;
+    }
+
+    .section-header h2 {
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          44px
+        );
+
+      margin-top:
+        8px;
+
+      letter-spacing:
+        -2px;
+    }
+
+    /* CATEGORIES */
+
+    .categories {
+      display:
+        flex;
+
+      gap:
+        10px;
+
+      overflow-x:
+        auto;
+
+      padding-bottom:
+        10px;
+
+      margin-bottom:
+        34px;
+
+      scrollbar-width:
+        none;
+    }
+
+    .categories::-webkit-scrollbar {
+      display:
+        none;
+    }
+
+    .category-btn {
+      flex:
+        0 0 auto;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        #1a1a1a;
+
+      color:
+        #bbb;
+
+      padding:
+        13px 19px;
+
+      border-radius:
+        999px;
+
+      font-weight:
+        800;
+
+      transition:
+        .2s;
+    }
+
+    .category-btn.active,
+    .category-btn:hover {
+      background:
+        var(--red);
+
+      color:
+        white;
+
+      border-color:
+        var(--red);
+    }
+
+    /* PRODUCTS */
+
+    .products-grid {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          3,
+          1fr
+        );
+
+      gap:
+        18px;
+    }
+
+    .product-card {
+      background:
+        #191919;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        22px;
+
+      padding:
+        20px;
+
+      transition:
+        .25s;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      min-height:
+        290px;
+    }
+
+    .product-card:hover {
+      transform:
+        translateY(-5px);
+
+      border-color:
+        rgba(226,29,47,.5);
+
+      background:
+        #1d1d1d;
+    }
+
+    .product-top {
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        flex-start;
+
+      gap:
+        15px;
+    }
+
+    .product-icon {
+      width:
+        58px;
+
+      height:
+        58px;
+
+      border-radius:
+        16px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        rgba(226,29,47,.12);
+
+      font-size:
+        30px;
+    }
+
+    .product-tag {
+      font-size:
+        10px;
+
+      font-weight:
+        900;
+
+      color:
+        var(--yellow);
+
+      background:
+        rgba(255,201,40,.1);
+
+      border:
+        1px solid
+        rgba(255,201,40,.16);
+
+      border-radius:
+        999px;
+
+      padding:
+        6px 9px;
+    }
+
+    .product-card h3 {
+      font-size:
+        19px;
+
+      margin-top:
+        18px;
+    }
+
+    .product-description {
+      color:
+        #999;
+
+      font-size:
+        13px;
+
+      line-height:
+        1.55;
+
+      margin-top:
+        9px;
+
+      flex:
+        1;
+    }
+
+    .product-bottom {
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      gap:
+        15px;
+
+      margin-top:
+        25px;
+    }
+
+    .price {
+      font-size:
+        21px;
+
+      font-weight:
+        1000;
+    }
+
+    .price small {
+      font-size:
+        12px;
+
+      color:
+        #888;
+
+      font-weight:
+        500;
+    }
+
+    .add-button {
+      width:
+        45px;
+
+      height:
+        45px;
+
+      border:
+        none;
+
+      border-radius:
+        13px;
+
+      background:
+        var(--red);
+
+      color:
+        white;
+
+      font-size:
+        24px;
+
+      font-weight:
+        900;
+
+      transition:
+        .2s;
+    }
+
+    .add-button:hover {
+      transform:
+        scale(1.07);
+
+      background:
+        #ff2c40;
+    }
+
+    .hidden {
+      display:
+        none !important;
+    }
+
+    /* INFO */
+
+    .info-grid {
+      margin-top:
+        70px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          3,
+          1fr
+        );
+
+      gap:
+        15px;
+    }
+
+    .info-card {
+      background:
+        #181818;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        20px;
+
+      padding:
+        23px;
+    }
+
+    .info-card span {
+      font-size:
+        27px;
+    }
+
+    .info-card h3 {
+      margin-top:
+        15px;
+
+      font-size:
+        16px;
+    }
+
+    .info-card p {
+      color:
+        #999;
+
+      line-height:
+        1.5;
+
+      font-size:
+        13px;
+
+      margin-top:
+        7px;
+    }
+
+    /* CART */
+
+    .overlay {
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      background:
+        rgba(0,0,0,.68);
+
+      z-index:
+        199;
+
+      opacity:
+        0;
+
+      pointer-events:
+        none;
+
+      transition:
+        .25s;
+    }
+
+    .overlay.active {
+      opacity:
+        1;
+
+      pointer-events:
+        all;
+    }
+
+    .cart {
+      position:
+        fixed;
+
+      right:
+        -460px;
+
+      top:
+        0;
+
+      width:
+        min(
+          430px,
+          100%
+        );
+
+      height:
+        100vh;
+
+      z-index:
+        200;
+
+      background:
+        #121212;
+
+      border-left:
+        1px solid var(--border);
+
+      transition:
+        .3s ease;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+    }
+
+    .cart.active {
+      right:
+        0;
+    }
+
+    .cart-header {
+      padding:
+        22px;
+
+      border-bottom:
+        1px solid var(--border);
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+    }
+
+    .cart-header h2 {
+      font-size:
+        22px;
+    }
+
+    .close-cart {
+      border:
+        none;
+
+      background:
+        #222;
+
+      color:
+        white;
+
+      width:
+        40px;
+
+      height:
+        40px;
+
+      border-radius:
+        12px;
+
+      font-size:
+        20px;
+    }
+
+    .cart-items {
+      flex:
+        1;
+
+      overflow-y:
+        auto;
+
+      padding:
+        20px;
+    }
+
+    .empty-cart {
+      color:
+        #888;
+
+      text-align:
+        center;
+
+      margin-top:
+        70px;
+
+      line-height:
+        1.7;
+    }
+
+    .cart-item {
+      padding:
+        16px 0;
+
+      border-bottom:
+        1px solid var(--border);
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr auto;
+
+      gap:
+        12px;
+    }
+
+    .cart-item h4 {
+      font-size:
+        14px;
+    }
+
+    .cart-item-price {
+      color:
+        #aaa;
+
+      font-size:
+        13px;
+
+      margin-top:
+        5px;
+    }
+
+    .qty {
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        10px;
+
+      margin-top:
+        12px;
+    }
+
+    .qty button {
+      width:
+        30px;
+
+      height:
+        30px;
+
+      border-radius:
+        8px;
+
+      border:
+        none;
+
+      background:
+        #292929;
+
+      color:
+        white;
+
+      font-weight:
+        900;
+    }
+
+    .remove-item {
+      background:
+        transparent;
+
+      border:
+        none;
+
+      color:
+        #ff5968;
+
+      font-size:
+        12px;
+    }
+
+    .cart-footer {
+      border-top:
+        1px solid var(--border);
+
+      padding:
+        20px;
+    }
+
+    .total-line {
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      margin-bottom:
+        17px;
+    }
+
+    .total-line strong {
+      font-size:
+        22px;
+    }
+
+    .whatsapp-button {
+      width:
+        100%;
+
+      border:
+        none;
+
+      border-radius:
+        15px;
+
+      padding:
+        16px;
+
+      color:
+        white;
+
+      background:
+        #25d366;
+
+      font-size:
+        15px;
+
+      font-weight:
+        1000;
+
+      transition:
+        .2s;
+    }
+
+    .whatsapp-button:hover {
+      background:
+        #1eb956;
+
+      transform:
+        translateY(-2px);
+    }
+
+    footer {
+      text-align:
+        center;
+
+      padding:
+        30px 20px;
+
+      color:
+        #666;
+
+      border-top:
+        1px solid var(--border);
+
+      font-size:
+        12px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (
+      max-width:
+      900px
+    ) {
+      .hero-container {
+        grid-template-columns:
+          1fr;
+      }
+
+      .hero-card {
+        display:
+          none;
+      }
+
+      .products-grid {
+        grid-template-columns:
+          repeat(
+            2,
+            1fr
+          );
+      }
+    }
+
+    @media (
+      max-width:
+      620px
+    ) {
+      .header-container {
+        padding:
+          10px 14px;
+      }
+
+      .brand img {
+        width:
+          43px;
+
+        height:
+          43px;
+      }
+
+      .brand-text h1 {
+        font-size:
+          16px;
+      }
+
+      .brand-text p {
+        font-size:
+          10px;
+      }
+
+      .cart-button {
+        padding:
+          11px 13px;
+      }
+
+      .cart-button-text {
+        display:
+          none;
+      }
+
+      .hero {
+        min-height:
+          380px;
+      }
+
+      .hero-container {
+        padding:
+          55px 16px;
+      }
+
+      .hero h2 {
+        letter-spacing:
+          -2px;
+      }
+
+      .content {
+        padding:
+          45px 14px 100px;
+      }
+
+      .products-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .product-card {
+        min-height:
+          230px;
+      }
+
+      .info-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .hero-actions {
+        flex-direction:
+          column;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width:
+          100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-container">
+
+    <div class="brand">
+
+      <img
+        src="images/a59e373e0_logo.png"
+        alt="La Famiglia"
+      >
+
+      <div class="brand-text">
+        <h1>La Famiglia</h1>
+
+        <p>
+          <span class="status">● Aberto</span>
+          • até 00h
+        </p>
+      </div>
+
+    </div>
+
+    <button
+      class="cart-button"
+      onclick="openCart()"
+    >
+      🛒
+
+      <span class="cart-button-text">
+        Meu pedido
+      </span>
+
+      <span
+        class="cart-count"
+        id="cartCount"
+      >
+        0
+      </span>
+    </button>
+
+  </div>
+</header>
+
+
+<section class="hero">
+
+  <div class="hero-container">
+
+    <div>
+
+      <div class="hero-badge">
+        🔥 Pedido direto pelo WhatsApp
+      </div>
+
+      <h2>
+        Pizza boa é
+        <span>em família.</span>
+      </h2>
+
+      <p class="hero-description">
+        Massa saborosa, recheio caprichado
+        e aquele preço que não destrói
+        sua noite. Escolha seus favoritos,
+        monte o pedido e envie direto
+        para nosso WhatsApp.
+      </p>
+
+      <div class="hero-actions">
+
+        <a
+          href="#cardapio"
+          class="btn-primary"
+        >
+          Ver cardápio
+        </a>
+
+        <a
+          href="#informacoes"
+          class="btn-secondary"
+        >
+          Horários e entrega
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-card">
+
+      <img
+        src="images/a59e373e0_logo.png"
+        alt="La Famiglia"
+      >
+
+      <h3>La Famiglia</h3>
+
+      <p>
+        Sua noite merece pizza.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main
+  class="content"
+  id="cardapio"
+>
+
+  <div class="section-header">
+    <span>Cardápio</span>
+    <h2>Escolha sua fome.</h2>
+  </div>
+
+
+  <div class="categories">
+
+    <button
+      class="category-btn active"
+      onclick="filterProducts('todos', this)"
+    >
+      Tudo
+    </button>
+
+    <button
+      class="category-btn"
+      onclick="filterProducts('pizza', this)"
+    >
+      🍕 Pizzas
+    </button>
+
+    <button
+      class="category-btn"
+      onclick="filterProducts('esfiha', this)"
+    >
+      🥙 Esfihas
+    </button>
+
+    <button
+      class="category-btn"
+      onclick="filterProducts('combo', this)"
+    >
+      🔥 Combos
+    </button>
+
+    <button
+      class="category-btn"
+      onclick="filterProducts('bebida', this)"
+    >
+      🥤 Bebidas
+    </button>
+
+  </div>
+
+
+  <section
+    class="products-grid"
+    id="products"
+  >
+
+    <article
+      class="product-card"
+      data-category="pizza"
+    >
+
+      <div class="product-top">
+
+        <div class="product-icon">
+          🍕
+        </div>
+
+        <span class="product-tag">
+          MAIS PEDIDA
+        </span>
+
+      </div>
+
+      <h3>Calabresa</h3>
+
+      <p class="product-description">
+        Molho artesanal, mussarela,
+        calabresa fatiada, cebola e
+        orégano.
+      </p>
+
+      <div class="product-bottom">
+
+        <div class="price">
+          <small>a partir de</small><br>
+          R$ 39,90
+        </div>
+
+        <button
+          class="add-button"
+          onclick="addToCart(
+            'Pizza Calabresa',
+            39.90
+          )"
+        >
+          +
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product-card"
+      data-category="pizza"
+    >
+
+      <div class="product-top">
+
+        <div class="product-icon">
+          🧀
+        </div>
+
+        <span class="product-tag">
+          CLÁSSICA
+        </span>
+
+      </div>
+
+      <h3>Mussarela</h3>
+
+      <p class="product-description">
+        Molho da casa, muita mussarela,
+        tomate e orégano.
+      </p>
+
+      <div class="product-bottom">
+
+        <div class="price">
+          <small>a partir de</small><br>
+          R$ 36,90
+        </div>
+
+        <button
+          class="add-button"
+          onclick="addToCart(
+            'Pizza Mussarela',
+            36.90
+          )"
+        >
+          +
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product-card"
+      data-category="pizza"
+    >
+
+      <div class="product-top">
+
+        <div class="product-icon">
+          🍗
+        </div>
+
+        <span class="product-tag">
+          FAVORITA
+        </span>
+
+      </div>
+
+      <h3>Frango com Catupiry</h3>
+
+      <p class="product-description">
+        Frango temperado, mussarela,
+        catupiry cremoso e orégano.
+      </p>
+
+      <div class="product-bottom">
+
+        <div class="price">
+          <small>a partir de</small><br>
+          R$ 44,90
+        </div>
+
+        <button
+          class="add-button"
+          onclick="addToCart(
+            'Pizza Frango com Catupiry',
+            44.90
+          )"
+        >
+          +
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product-card"
+      data-category="esfiha"
+    >
+
+      <div class="product-top">
+
+        <div class="product-icon">
+          🥙
+        </div>
+
+        <span class="product-tag">
+          TRADICIONAL
+        </span>
+
+      </div>
+
+      <h3>Esfiha de Carne</h3>
+
+      <p class="product-description">
+        Carne temperada com tomate,
+        cebola e temperos selecionados.
+      </p>
+
+      <div class="product-bottom">
+
+        <div class="price">
+          R$ 7,50
+        </div>
+
+        <button
+          class="add-button"
+          onclick="addToCart(
+            'Esfiha de Carne',
+            7.50
+          )"
+        >
+          +
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product-card"
+      data-category="esfiha"
+    >
+
+      <div class="product-top">
+
+        <div class="product-icon">
+          🧀
+        </div>
+
+        <span class="product-tag">
+          CREMOSA
+        </span>
+
+      </div>
+
+      <h3>Esfiha de Queijo</h3>
+
+      <p class="product-description">
+        Recheio generoso de queijo
+        e temperos especiais.
+      </p>
+
+      <div class="product-bottom">
+
+        <div class="price">
+          R$ 7,00
+        </div>
+
+        <button
+          class="add-button"
+          onclick="addToCart(
+            'Esfiha de Queijo',
+            7
+          )"
+        >
+          +
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product-card"
+      data-category="combo"
+    >
+
+      <div class="product-top">
+
+        <div class="product-icon">
+          🔥
+        </div>
+
+        <span class="product-tag">
+          ECONOMIZE
+        </span>
+
+      </div>
+
+      <h3>Combo Família</h3>
+
+      <p class="product-description">
+        2 pizzas grandes + refrigerante
+        de 2 litros.
+      </p>
+
+      <div class="product-bottom">
+
+        <div class="price">
+          R$ 89,90
+        </div>
+
+        <button
+          class="add-button"
+          onclick="addToCart(
+            'Combo Família',
+            89.90
+          )"
+        >
+          +
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product-card"
+      data-category="bebida"
+    >
+
+      <div class="product-top">
+
+        <div class="product-icon">
+          🥤
+        </div>
+
+        <span class="product-tag">
+          GELADA
+        </span>
+
+      </div>
+
+      <h3>Coca-Cola 2L</h3>
+
+      <p class="product-description">
+        Refrigerante Coca-Cola
+        2 litros gelado.
+      </p>
+
+      <div class="product-bottom">
+
+        <div class="price">
+          R$ 14,00
+        </div>
+
+        <button
+          class="add-button"
+          onclick="addToCart(
+            'Coca-Cola 2L',
+            14
+          )"
+        >
+          +
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <article
+      class="product-card"
+      data-category="bebida"
+    >
+
+      <div class="product-top">
+
+        <div class="product-icon">
+          🥤
+        </div>
+
+        <span class="product-tag">
+          GELADA
+        </span>
+
+      </div>
+
+      <h3>Guaraná 2L</h3>
+
+      <p class="product-description">
+        Refrigerante Guaraná
+        2 litros gelado.
+      </p>
+
+      <div class="product-bottom">
+
+        <div class="price">
+          R$ 12,00
+        </div>
+
+        <button
+          class="add-button"
+          onclick="addToCart(
+            'Guaraná 2L',
+            12
+          )"
+        >
+          +
+        </button>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <section
+    class="info-grid"
+    id="informacoes"
+  >
+
+    <article class="info-card">
+      <span>🕕</span>
+
+      <h3>Horário</h3>
+
+      <p>
+        Todos os dias<br>
+        das 18h às 00h.
+      </p>
+    </article>
+
+
+    <article class="info-card">
+      <span>🛵</span>
+
+      <h3>Entrega</h3>
+
+      <p>
+        Consulte taxa e disponibilidade
+        informando seu endereço.
+      </p>
+    </article>
+
+
+    <article class="info-card">
+      <span>💳</span>
+
+      <h3>Pagamento</h3>
+
+      <p>
+        Pix, dinheiro e cartões.
+      </p>
+    </article>
+
+  </section>
+
+</main>
+
+
+<footer>
+  © 2026 La Famiglia • Cardápio Digital
+</footer>
+
+
+<div
+  class="overlay"
+  id="overlay"
+  onclick="closeCart()"
+></div>
+
+
+<aside
+  class="cart"
+  id="cart"
+>
+
+  <div class="cart-header">
+
+    <h2>
+      🛒 Seu pedido
+    </h2>
+
+    <button
+      class="close-cart"
+      onclick="closeCart()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div
+    class="cart-items"
+    id="cartItems"
+  >
+  </div>
+
+
+  <div class="cart-footer">
+
+    <div class="total-line">
+
+      <span>Total</span>
+
+      <strong id="cartTotal">
+        R$ 0,00
+      </strong>
+
+    </div>
+
+    <button
+      class="whatsapp-button"
+      onclick="sendWhatsApp()"
+    >
+      Finalizar no WhatsApp
+    </button>
+
+  </div>
+
+</aside>
+
+
+<script>
+
+  const WHATSAPP =
+    "5511999999999";
+
+  let cart =
+    [];
+
+
+  function money(value) {
+
+    return value.toLocaleString(
+      "pt-BR",
+      {
+        style:
+          "currency",
+
+        currency:
+          "BRL"
+      }
+    );
+
+  }
+
+
+  function addToCart(
+    name,
+    price
+  ) {
+
+    const existing =
+      cart.find(
+        item =>
+          item.name === name
+      );
+
+
+    if (existing) {
+
+      existing.quantity++;
+
+    } else {
+
+      cart.push({
+        name,
+        price,
+        quantity: 1
+      });
+
+    }
+
+
+    renderCart();
+
+    openCart();
+
+  }
+
+
+  function increase(index) {
+
+    cart[index].quantity++;
+
+    renderCart();
+
+  }
+
+
+  function decrease(index) {
+
+    cart[index].quantity--;
+
+
+    if (
+      cart[index].quantity <= 0
+    ) {
+
+      cart.splice(
+        index,
+        1
+      );
+
+    }
+
+
+    renderCart();
+
+  }
+
+
+  function removeItem(index) {
+
+    cart.splice(
+      index,
+      1
+    );
+
+    renderCart();
+
+  }
+
+
+  function renderCart() {
+
+    const container =
+      document.getElementById(
+        "cartItems"
+      );
+
+    const count =
+      document.getElementById(
+        "cartCount"
+      );
+
+    const totalElement =
+      document.getElementById(
+        "cartTotal"
+      );
+
+
+    const totalQuantity =
+      cart.reduce(
+        (
+          total,
+          item
+        ) =>
+          total +
+          item.quantity,
+        0
+      );
+
+
+    const totalPrice =
+      cart.reduce(
+        (
+          total,
+          item
+        ) =>
+          total +
+          item.price *
+          item.quantity,
+        0
+      );
+
+
+    count.textContent =
+      totalQuantity;
+
+    totalElement.textContent =
+      money(
+        totalPrice
+      );
+
+
+    if (
+      cart.length === 0
+    ) {
+
+      container.innerHTML =
+        `
+        <div class="empty-cart">
+
+          <div
+            style="
+              font-size:48px;
+              margin-bottom:15px;
+            "
+          >
+            🍕
+          </div>
+
+          Seu carrinho ainda
+          está vazio.<br>
+
+          Escolhe uma pizza aí,
+          pô.
+
+        </div>
+        `;
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      cart.map(
+        (
+          item,
+          index
+        ) =>
+        `
+        <div class="cart-item">
+
+          <div>
+
+            <h4>
+              ${item.name}
+            </h4>
+
+            <div class="cart-item-price">
+
+              ${money(item.price)}
+
+              ×
+
+              ${item.quantity}
+
+            </div>
+
+
+            <div class="qty">
+
+              <button
+                onclick="decrease(${index})"
+              >
+                −
+              </button>
+
+              <strong>
+                ${item.quantity}
+              </strong>
+
+              <button
+                onclick="increase(${index})"
+              >
+                +
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <button
+            class="remove-item"
+            onclick="removeItem(${index})"
+          >
+            Remover
+          </button>
+
+        </div>
+        `
+      ).join("");
+
+  }
+
+
+  function openCart() {
+
+    document
+      .getElementById(
+        "cart"
+      )
+      .classList
+      .add(
+        "active"
+      );
+
+
+    document
+      .getElementById(
+        "overlay"
+      )
+      .classList
+      .add(
+        "active"
+      );
+
+  }
+
+
+  function closeCart() {
+
+    document
+      .getElementById(
+        "cart"
+      )
+      .classList
+      .remove(
+        "active"
+      );
+
+
+    document
+      .getElementById(
+        "overlay"
+      )
+      .classList
+      .remove(
+        "active"
+      );
+
+  }
+
+
+  function filterProducts(
+    category,
+    button
+  ) {
+
+    document
+      .querySelectorAll(
+        ".category-btn"
+      )
+      .forEach(
+        btn =>
+          btn
+            .classList
+            .remove(
+              "active"
+            )
+      );
+
+
+    button
+      .classList
+      .add(
+        "active"
+      );
+
+
+    document
+      .querySelectorAll(
+        ".product-card"
+      )
+      .forEach(
+        card => {
+
+          if (
+            category ===
+            "todos" ||
+            card.dataset.category ===
+            category
+          ) {
+
+            card
+              .classList
+              .remove(
+                "hidden"
+              );
+
+          } else {
+
+            card
+              .classList
+              .add(
+                "hidden"
+              );
+
+          }
+
+        }
+      );
+
+  }
+
+
+  function sendWhatsApp() {
+
+    if (
+      cart.length === 0
+    ) {
+
+      alert(
+        "Adicione algum item ao pedido."
+      );
+
+      return;
+
+    }
+
+
+    let message =
+      "🍕 *NOVO PEDIDO - LA FAMIGLIA*%0A%0A";
+
+
+    cart.forEach(
+      item => {
+
+        message +=
+          `• ${item.quantity}x ${item.name} - ${money(
+            item.price *
+            item.quantity
+          )}%0A`;
+
+      }
+    );
+
+
+    const total =
+      cart.reduce(
+        (
+          sum,
+          item
+        ) =>
+          sum +
+          item.price *
+          item.quantity,
+        0
+      );
+
+
+    message +=
+      `%0A💰 *Total: ${money(total)}*`;
+
+    message +=
+      "%0A%0A📍 Meu endereço:%0A";
+
+    message +=
+      "%0A💳 Forma de pagamento:";
+
+
+    window.open(
+      `https://wa.me/${WHATSAPP}?text=${message}`,
+      "_blank"
+    );
+
+  }
+
+
+  renderCart();
+
+</script>
+
+</body>
+</html>
